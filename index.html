@@ -146,8 +146,8 @@
       color: #ffffff;
     }
     .boot-log-terminal {
-      background: #030508;
-      border: 1px dashed #142233;
+      background: #030407;
+      border: 1px dashed #142030;
       padding: 12px;
       border-radius: 4px;
       min-height: 95px;
@@ -860,7 +860,7 @@
       document.getElementById('recon-tag').innerText = `RECONSTRUCTION: ${percent}%`;
       document.getElementById('progress-line').style.width = `${percent}%`;
 
-      document.getElementById('query-text').innerText = `${stepNum}. ${q.question}`;
+      document.getElementById('query-text').innerText = q.question;
 
       // 실시간 시스템 로그 갱신
       const ticker = document.getElementById('system-ticker');

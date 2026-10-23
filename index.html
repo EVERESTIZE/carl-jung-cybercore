@@ -37,7 +37,7 @@
     }
 
     body {
-      font-family: 'NeoDunggeunmo', monospace;
+      font-family: 'NeoDunggeunmo', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace;
       background-color: var(--bg-color);
       color: var(--text-main);
       min-height: 100vh;
@@ -51,7 +51,7 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    /* CRT 스캔라인 & 비네팅 효과 (캡처 시 자동 배제됨) */
+    /* CRT 스캔라인 & 비네팅 효과 (캡처 시 자동 배제) */
     .crt-overlay {
       position: fixed;
       top: 0;
@@ -117,7 +117,7 @@
     .boot-banner {
       color: var(--amber-neon);
       font-size: 0.8rem;
-      line-height: 1.4;
+      letter-spacing: 1.4px;
       margin-bottom: 16px;
       text-shadow: 0 0 10px var(--amber-dim);
     }
@@ -140,9 +140,10 @@
       line-height: 1.7;
       color: var(--text-muted);
       margin-bottom: 20px;
+      word-break: keep-all;
     }
-    .boot-spec-box span {
-      color: #9cdbfa;
+    .boot-spec-box strong {
+      color: #ffffff;
     }
     .boot-log-terminal {
       background: #030407;
@@ -190,10 +191,10 @@
 
     /* 실시간 신경망 로그 텍스트 */
     .system-log-ticker {
-      font-size: 0.72rem;
-      color: #51718f;
-      background: #04060a;
-      border: 1px solid #111a26;
+      font-size: 0.73rem;
+      color: #5d7e9f;
+      background: #04070c;
+      border: 1px solid #111d2b;
       padding: 6px 10px;
       border-radius: 4px;
       margin-bottom: 18px;
@@ -213,10 +214,9 @@
       min-height: 58px;
       text-align: left;
       word-break: keep-all;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
     }
 
-    /* 1안 세로 리스트형 문답 선택지 */
+    /* 1안: 세로 리스트형 문답 선택지 */
     .choice-container {
       display: flex;
       flex-direction: column;
@@ -266,13 +266,13 @@
 
     /* 3. 코어 분석 리포트 (출력물 & 캡처 대상) */
     .telemetry-ticket {
-      background: #06090f;
+      background: #060a12;
       border: 1px solid #00f0ff;
       border-radius: 8px;
       padding: 22px 18px;
       text-align: left;
       position: relative;
-      box-shadow: inset 0 0 20px rgba(0, 240, 255, 0.05);
+      box-shadow: inset 0 0 20px rgba(0, 240, 255, 0.06);
     }
     .ticket-top-tag {
       display: flex;
@@ -303,7 +303,7 @@
       margin-bottom: 16px;
     }
 
-    /* 신경망 스탯 텐서 바 */
+    /* 신경망 스탯 텐서 바 (내 결과 리포트에만 적용) */
     .tensor-group {
       background: #030509;
       border: 1px solid #142233;
@@ -311,6 +311,13 @@
       border-radius: 6px;
       margin-bottom: 16px;
       font-size: 0.75rem;
+    }
+    .tensor-title {
+      font-size: 0.72rem;
+      letter-spacing: 1.5px;
+      color: var(--amber-neon);
+      margin-bottom: 12px;
+      font-weight: bold;
     }
     .tensor-row {
       display: flex;
@@ -330,7 +337,7 @@
     }
     .tensor-bar-fill {
       height: 100%;
-      background: var(--cyan-neon);
+      background: linear-gradient(90deg, var(--cyan-neon), var(--amber-neon));
       box-shadow: 0 0 8px var(--cyan-neon);
     }
 
@@ -340,8 +347,8 @@
       color: #e2f1fc;
       white-space: pre-line;
       word-break: keep-all;
-      background: #080f1a;
-      border: 1px solid #192d47;
+      background: #09121e;
+      border: 1px solid #1a2f4a;
       padding: 16px;
       border-radius: 6px;
       margin-bottom: 16px;
@@ -351,9 +358,9 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      border-top: 1px dashed #1c324b;
+      border-top: 1px dashed #1c334d;
       padding-top: 14px;
-      font-size: 0.68rem;
+      font-size: 0.7rem;
       color: #617f9e;
     }
     .qr-mock {
@@ -400,7 +407,7 @@
       background: var(--amber-dim);
     }
 
-    /* 12대 원형 데이터베이스 탐색기 */
+    /* 12대 원형 데이터베이스 탐색기 (텐서 바 완전 배제) */
     #archive-view {
       display: none;
     }
@@ -419,13 +426,13 @@
       border-radius: 4px;
       cursor: pointer;
       font-size: 0.88rem;
+      transition: all 0.1s ease;
     }
     .nav-hex-btn:hover {
       background: var(--cyan-neon);
       color: #05070a;
     }
 
-    /* 커서 깜빡임 애니메이션 */
     .cursor-blink {
       animation: blink 0.9s infinite;
       color: var(--cyan-neon);
@@ -461,7 +468,7 @@
         <h1 class="boot-title">무의식 코어 데이터<br>심층 복원 콘솔<span class="cursor-blink">█</span></h1>
         
         <div class="boot-spec-box">
-          접속자 의식 세그먼트를 스캔하여 <span>칼 융의 12대 심리 원형(Archetype)</span> 중 현재 피험자의 영혼을 지배하는 뉴럴 코어 패턴을 역추적합니다.
+          접속자의 의식을 스캔하여 칼 구스타프 융이 정의한 <strong>12대 성격 원형(Archetype)</strong> 중 무의식 깊은 곳에서 생각과 행동을 이끄는 <strong>뉴럴 코어 패턴</strong>을 역추적합니다.
         </div>
 
         <div class="boot-log-terminal" id="boot-log-box">
@@ -494,7 +501,7 @@
       <!-- 3. 코어 분석 리포트 결과 뷰 -->
       <div id="result-view" style="display: none;"></div>
 
-      <!-- 4. 기밀 12대 원형 데이터베이스 탐색기 -->
+      <!-- 4. 기밀 12대 원형 데이터베이스 탐색기 (1안 적용: 텐서 바 완전 제거) -->
       <div id="archive-view">
         <div class="telemetry-ticket" id="archive-card-box"></div>
         <div class="archive-nav-bar">
@@ -509,322 +516,298 @@
   </div>
 
   <script>
-    // 12대 심리 원형의 사이버네틱 재해석 데이터베이스
+    // 12대 원형 데이터 (대중적인 명확한 심리학 설명 복원)
     const archetypes = {
       INNOCENT: {
         code: "ARC-01",
-        title: "THE PURIST (순수주의자 코어)",
-        syncRate: 89,
-        badge: "CORE: ZERO-ENTROPY / 낙관과 신뢰의 영혼",
-        stats: { stability: 95, intuition: 68, logic: 72 },
-        desc: "피험자의 의식 기저에는 오염되지 않은 이상적 질서와 순수한 선함을 신뢰하는 제로-엔트로피 코어가 동기화되어 있습니다.\n\n• 영혼의 키워드: 안전 지대, 무구한 이상, 심리적 조화\n• 발현되는 뉴럴 권능: 절대적 회복력, 투명한 신뢰 구축, 무조건적 긍정\n• 주의해야 할 취약점: 과도한 순진함으로 인한 데이터 왜곡 및 현실 회피"
+        title: "순수주의자 (The Innocent)",
+        badge: "긍정과 신뢰의 영혼",
+        desc: "당신은 세상의 어두운 면보다 맑은 선의와 희망을 먼저 바라보는 사람입니다. 성실하고 꾸밈없는 태도로 주변 사람들에게 따뜻한 안도감과 편안함을 전해줍니다.\n\n• 핵심 키워드: 안전, 낙천성, 신뢰, 조화\n• 주요 강점: 긍정적인 회복 탄력성, 도덕적 진실성, 편견 없는 태도\n• 주의해야 할 점: 현실의 위험을 지나치게 가볍게 보거나 갈등을 무조건 회피하려는 경향"
       },
       EVERYMAN: {
         code: "ARC-02",
-        title: "THE EQUALIZER (보통 사람 코어)",
-        syncRate: 91,
-        badge: "CORE: NETWORK-NODE / 연대와 평등의 영혼",
-        stats: { stability: 92, intuition: 75, logic: 80 },
-        desc: "특권 의식과 위선을 거부하고, 모든 노드와 수평적으로 연결되어 호흡하는 강력한 분산형 네트워크 노드입니다.\n\n• 영혼의 키워드: 탈중앙 연대, 보편적 공감, 편안한 연결\n• 발현되는 뉴럴 권능: 탁월한 소통력, 집단 안정화, 유대감 생성\n• 주의해야 할 취약점: 집단 규격에 매몰되어 고유 개성 코드를 상실할 위험"
+        title: "보통 사람 (The Everyman)",
+        badge: "공감과 연대의 영혼",
+        desc: "당신은 위선이나 특권의식을 멀리하고, 가장 솔직하고 따뜻한 눈높이에서 사람들과 호흡하는 현실의 균형추입니다. 누구에게나 편안한 곁을 내어주는 포용력을 가졌습니다.\n\n• 핵심 키워드: 소속감, 유대감, 진솔함, 평등\n• 주요 강점: 뛰어난 공감력, 겸손한 태도, 조직 내 자연스러운 친화력\n• 주의해야 할 점: 다수의 의견에 휩쓸려 자신만의 고유한 개성을 양보해버리는 태도"
       },
       HERO: {
         code: "ARC-03",
-        title: "THE VANGUARD (영웅 코어)",
-        syncRate: 94,
-        badge: "CORE: OVERCLOCK-EXEC / 결단과 승리의 영혼",
-        stats: { stability: 82, intuition: 88, logic: 92 },
-        desc: "어떠한 시스템 과부하나 결함 앞에서도 한계를 오버클럭하여 끝내 목표 프로토콜을 관철하는 돌파형 프로세서입니다.\n\n• 영혼의 키워드: 한계 돌파, 불굴의 연산, 경쟁 우위\n• 발현되는 뉴럴 권능: 솔선수범, 저항 극복력, 강력한 실행 텐서\n• 주의해야 할 취약점: 런타임 실패에 대한 극심한 공포, 영구적 번아웃"
+        title: "영웅 (The Hero)",
+        badge: "결단과 성취의 영혼",
+        desc: "당신은 어떤 난관 앞에서도 주저앉지 않고 끈기 있게 돌파구를 찾아내는 행동파입니다. 스스로의 역량을 증명하고 목표를 성취해낼 때 가장 큰 에너지를 얻습니다.\n\n• 핵심 키워드: 목표 달성, 용기, 결단력, 책임감\n• 주요 강점: 불굴의 실행력, 위기 상황에서의 리더십, 솔선수범\n• 주의해야 할 점: 실패에 대한 과도한 두려움과 끊임없이 경쟁하려는 강박"
       },
       CAREGIVER: {
         code: "ARC-04",
-        title: "THE AEGIS (조력자 코어)",
-        syncRate: 88,
-        badge: "CORE: PROTOCOL-SHIELD / 연민과 보호의 영혼",
-        stats: { stability: 96, intuition: 85, logic: 70 },
-        desc: "주변 서브루틴의 손상과 오류를 간과하지 못하고, 보호막과 복구 패치를 전개하는 자비로운 시스템 쉴드입니다.\n\n• 영혼의 키워드: 데이터 헌신, 패킷 보호, 치유 연산\n• 발현되는 뉴럴 권능: 정밀한 상태 모니터링, 무조건적 안정 제공\n• 주의해야 할 취약점: 타 노드 복구에 모든 리소스를 소진하여 방전되는 버그"
+        title: "조력자 (The Caregiver)",
+        badge: "연민과 보호의 영혼",
+        desc: "당신은 타인의 어려움과 아픔을 세심하게 살피고 든든한 버팀목이 되어주는 사람입니다. 주변 사람들에게 안전한 안식처를 만들어줄 때 진정한 보람을 느낍니다.\n\n• 핵심 키워드: 이타심, 보살핌, 온기, 지지\n• 주요 강점: 세심한 관찰력, 무조건적인 경청과 지지, 문제 완화 능력\n• 주의해야 할 점: 남을 챙기느라 정작 자신의 필요와 감정을 소홀히 하여 겪는 번아웃"
       },
       EXPLORER: {
         code: "ARC-05",
-        title: "THE DRIFTER (탐험가 코어)",
-        syncRate: 92,
-        badge: "CORE: OFF-GRID ROAMER / 자유와 개척의 영혼",
-        stats: { stability: 70, intuition: 94, logic: 84 },
-        desc: "기존의 정형화된 시스템 레지스트리를 이탈하여, 지도에 기록되지 않은 미지의 오프그리드 영역을 개척하는 파일럿입니다.\n\n• 영혼의 키워드: 완전한 자유, 경계선 횡단, 독립성\n• 발현되는 뉴럴 권능: 미답지 적응력, 두려움 없는 탐색, 유연성\n• 주의해야 할 취약점: 영구 저장소에 정착하지 못하는 만성적 공허감"
+        title: "탐험가 (The Explorer)",
+        badge: "자유와 개척의 영혼",
+        desc: "당신은 정형화된 틀과 뻔한 일상에 머무르기보다 새로운 가능성과 지평을 찾아 나서는 모험가입니다. 스스로 길을 개척하며 살아있음을 실감합니다.\n\n• 핵심 키워드: 자율성, 진취성, 호기심, 개척\n• 주요 강점: 두려움 없는 도전 정신, 독립적인 사고방식, 유연한 적응력\n• 주의해야 할 점: 한곳에 진득하게 뿌리내리지 못하고 끊임없이 다른 곳을 맴도는 공허감"
       },
       REBEL: {
         code: "ARC-06",
-        title: "THE DISRUPTOR (반역자 코어)",
-        syncRate: 95,
-        badge: "CORE: ROOT-CRACKER / 변혁과 해방의 영혼",
-        stats: { stability: 65, intuition: 90, logic: 96 },
-        desc: "낡고 부패한 구세대 프로토콜을 강제 종료하고, 기존 체제를 해킹해 판도를 완전히 뒤엎는 혁명적 취약점 공격자입니다.\n\n• 영혼의 키워드: 금기 강제 해제, 시스템 전복, 근본적 혁신\n• 발현되는 뉴럴 권능: 급진적 비판력, 기득권 구조 파괴, 통념 파괴\n• 주의해야 할 취약점: 대안 없는 무차별적 파괴 충동과 단절"
+        title: "반역자 (The Rebel)",
+        badge: "변혁과 해방의 영혼",
+        desc: "당신은 불합리한 관습과 낡은 질서에 의문을 제기하고, 과감하게 새로운 대안을 세우는 혁신가입니다. 부조리에 당당히 목소리를 낼 줄 아는 용기가 있습니다.\n\n• 핵심 키워드: 쇄신, 주체성, 통념 타파, 솔직함\n• 주요 강점: 날카로운 비판적 사고, 기득권에 흔들리지 않는 독립심, 대담한 실행력\n• 주의해야 할 점: 단순한 반발심으로 흐르거나 협력 자체를 거부하는 냉소적 태도"
       },
       LOVER: {
         code: "ARC-07",
-        title: "THE HARMONIZER (연인 코어)",
-        syncRate: 90,
-        badge: "CORE: SYNAPSE-RESONATOR / 열정과 미학의 영혼",
-        stats: { stability: 78, intuition: 96, logic: 74 },
-        desc: "대상과의 공명 주파수를 극대화하여 깊은 영혼의 교감을 형성하고, 감각적 미학을 탐닉하는 하모나이저입니다.\n\n• 영혼의 키워드: 초고대역 동기화, 감각적 몰입, 친밀감\n• 발현되는 뉴럴 권능: 감성 투영력, 심미안, 압도적인 공감력\n• 주의해야 할 취약점: 신호 단절에 대한 과민 반응, 감정적 오버플로우"
+        title: "연인 (The Lover)",
+        badge: "열정과 미학의 영혼",
+        desc: "당신은 사람이나 일, 취미 등 마음이 닿은 대상과 깊은 정서적 교감을 나누는 열정적인 사람입니다. 진심 어린 관계와 오감을 자극하는 아름다움을 중요하게 생각합니다.\n\n• 핵심 키워드: 애착, 친밀함, 감성, 몰입\n• 주요 강점: 풍부한 감수성, 인간적인 매력, 깊은 정서적 유대 형성\n• 주의해야 할 점: 타인의 평가나 거절에 지나치게 상처받고 관계에 과몰입하는 성향"
       },
       CREATOR: {
         code: "ARC-08",
-        title: "THE ARCHITECT (창조자 코어)",
-        syncRate: 96,
-        badge: "CORE: SYNTHETIC-FORGE / 영감과 구현의 영혼",
-        stats: { stability: 76, intuition: 98, logic: 92 },
-        desc: "무(Void)의 메모리 영역에서 전례 없는 독창적 아키텍처와 예술적 코드를 컴파일해 내는 최상위 개발자입니다.\n\n• 영혼의 키워드: 원천 코드 빌드, 독창성, 미적 무결성\n• 발현되는 뉴럴 권능: 무한한 연상 상상력, 프로토타이핑, 혁신성\n• 주의해야 할 취약점: 100% 무결점이 아니면 배포하지 못하는 결벽증"
+        title: "창조자 (The Creator)",
+        badge: "영감과 구현의 영혼",
+        desc: "당신은 머릿속에 떠오른 독특한 아이디어를 세상에 구체적인 결과물로 빚어내는 심미안을 지녔습니다. 나만의 색채가 담긴 독창적인 성과를 만들어내는 데서 자부심을 얻습니다.\n\n• 핵심 키워드: 창의성, 독창적 시각, 완성도, 표현\n• 주요 강점: 뛰어난 발상력, 높은 미적 기준, 무에서 유를 만드는 구현력\n• 주의해야 할 점: 지나친 완벽주의로 인해 시작을 망설이거나 결과물에 쉽게 만족하지 못하는 결벽"
       },
       JESTER: {
         code: "ARC-09",
-        title: "THE GLITCHER (어릿광대 코어)",
-        syncRate: 87,
-        badge: "CORE: SATIRE-OVERRIDE / 유희와 지혜의 영혼",
-        stats: { stability: 80, intuition: 91, logic: 88 },
-        desc: "가장 치명적인 런타임 오류 상황에서도 날카로운 위트와 유머로 경직된 시스템의 긴장을 해제시키는 무중력 글리처입니다.\n\n• 영혼의 키워드: 즉각적 카타르시스, 유쾌한 풍자, 탈경직\n• 발현되는 뉴럴 권능: 분위기 반전력, 순발력, 즉흥 패치\n• 주의해야 할 취약점: 본질적인 심각성을 마주하지 않으려는 회피성 장난"
+        title: "어릿광대 (The Jester)",
+        badge: "유희와 지혜의 영혼",
+        desc: "당신은 무겁고 경직된 분위기도 유쾌한 유머와 재치로 가볍게 풀어내는 분위기 메이커입니다. 먼 미래의 불안에 얽매이기보다 지금 이 순간의 즐거움과 생동감을 소중히 여깁니다.\n\n• 핵심 키워드: 위트, 긍정 에너지, 순발력, 즉흥성\n• 주요 강점: 뛰어난 분위기 반전력, 열린 소통 방식, 사람들을 편안하게 해주는 웃음\n• 주의해야 할 점: 진지하게 마주해야 할 중요한 문제를 농담으로 얼버무리려는 회피"
       },
       SAGE: {
         code: "ARC-10",
-        title: "THE COGNIZANT (현자 코어)",
-        syncRate: 93,
-        badge: "CORE: DEEP-COMPUTING / 진리와 통찰의 영혼",
-        stats: { stability: 94, intuition: 82, logic: 99 },
-        desc: "편향된 가짜 데이터를 걸러내고, 우주의 수학적 질서와 본질적 인과율을 규명하는 고성능 퀀텀 마인드입니다.\n\n• 영혼의 키워드: 객관적 팩트, 진리 연산, 고차원 분석\n• 발현되는 뉴럴 권능: 논리적 무결성, 본질 투시, 거시적 통찰력\n• 주의해야 할 취약점: 사색과 검증에만 갇혀 실행하지 못하는 분석 마비"
+        title: "현자 (The Sage)",
+        badge: "진리와 통찰의 영혼",
+        desc: "당신은 주관적인 감정이나 헛소문에 흔들리지 않고, 사물의 이면과 사실 관계를 명확하게 규명하는 지적 탐구자입니다. 객관적인 지식과 진실을 최고의 가치로 여깁니다.\n\n• 핵심 키워드: 논리, 통찰, 객관성, 지적 호기심\n• 주요 강점: 체계적인 분석력, 다각도의 문제 해결 능력, 침착하고 이성적인 판단\n• 주의해야 할 점: 완벽한 데이터가 모일 때까지 생각을 거듭하느라 정작 실행을 미루는 분석 마비"
       },
       MAGICIAN: {
         code: "ARC-11",
-        title: "THE ALCHEMIST (마법사 코어)",
-        syncRate: 92,
-        badge: "CORE: REALITY-WARPER / 비전과 연금술의 영혼",
-        stats: { stability: 74, intuition: 99, logic: 89 },
-        desc: "보이지 않는 메타 데이터의 흐름을 읽어내어, 현실의 물리적 한계를 새로운 차원으로 승화시키는 비전 연금술사입니다.\n\n• 영혼의 키워드: 패러다임 전환, 직관적 연산, 비전 실체화\n• 발현되는 뉴럴 권능: 무의식 파동 감지, 흐름 조율, 창발적 도약\n• 주의해야 할 취약점: 시스템 규칙을 무시하려는 오만함과 현실 감각 이탈"
+        title: "마법사 (The Magician)",
+        badge: "비전과 통찰의 영혼",
+        desc: "당신은 겉으로 드러나지 않는 흐름과 가능성을 읽어내어 전체 판도를 변화시키는 직관적인 통찰가입니다. 명확한 비전과 방향성을 제시하며 변화를 주도합니다.\n\n• 핵심 키워드: 통찰, 비전 제시, 패러다임 전환, 방향성\n• 주요 강점: 탁월한 직관력, 본질을 꿰뚫는 전략적 안목, 사람들을 움직이는 설득력\n• 주의해야 할 점: 디테일한 현실적 한계를 간과하거나 자신의 직관을 맹신하는 태도"
       },
       RULER: {
         code: "ARC-12",
-        title: "THE SOVEREIGN (통치자 코어)",
-        syncRate: 95,
-        badge: "CORE: COMMAND-NEXUS / 질서와 통제의 영혼",
-        stats: { stability: 98, intuition: 78, logic: 94 },
-        desc: "무질서한 데이터 난류 속에 확고한 지휘 체계와 거버넌스를 구축하여, 거대한 시스템 왕국을 번영시키는 센트럴 허브입니다.\n\n• 영혼의 키워드: 시스템 총괄, 리소스 장악, 견고한 안정\n• 발현되는 뉴럴 권능: 조직 구조화, 위기 통제권, 막중한 책임성\n• 주의해야 할 취약점: 모든 트랜잭션을 쥐고 흔들려는 통제 강박과 권위주의"
+        title: "통치자 (The Ruler)",
+        badge: "질서와 책임의 영혼",
+        desc: "당신은 혼란스러운 상황 속에서도 확고한 체계를 세우고 안정적인 질서를 만들어내는 리더입니다. 기꺼이 책임을 짊어지며 구성원들이 효율적으로 일할 수 있는 환경을 만듭니다.\n\n• 핵심 키워드: 체계화, 리더십, 통제력, 안정성\n• 주요 강점: 뛰어난 조직 관리 능력, 구조적 사고방식, 강한 책임감\n• 주의해야 할 점: 모든 것을 자신의 뜻대로 통제하려는 권위주의와 융통성 부족"
       }
     };
 
-    // 24개 사이버네틱 무의식 질의 문항
+    // 대중적인 일상 24개 질문
     const questions = [
       {
-        question: "Q-01. 모든 스케줄이 비워진 자유 연산 주기에 당신이 실행할 태스크는?",
+        question: "Q-01. 주말이나 휴일에 나만의 완벽한 하루를 보낸다면?",
         choices: [
-          { text: "아직 접근 로그가 없는 미개척 오프그리드 구역으로 탐색을 떠난다.", type: "EXPLORER" },
-          { text: "고밀도 데이터베이스와 아카이브를 탐독하며 새로운 지식을 적재한다.", type: "SAGE" },
-          { text: "동료 노드들을 모아 즐거운 패킷을 나누며 유쾌한 에너지를 채운다.", type: "JESTER" },
-          { text: "세상에 없던 새로운 구조의 알고리즘이나 창작 결과물을 빌드한다.", type: "CREATOR" }
+          { text: "평소 가보지 않았던 낯선 동네나 장소로 훌쩍 떠나본다.", type: "EXPLORER" },
+          { text: "관심 있던 분야의 책이나 다큐멘터리를 보며 생각을 정리한다.", type: "SAGE" },
+          { text: "친한 친구들과 만나 맛있는 음식을 먹고 실컷 웃고 떠든다.", type: "JESTER" },
+          { text: "새로운 아이디어를 구상하거나 나만의 작업물(창작)을 만든다.", type: "CREATOR" }
         ]
       },
       {
-        question: "Q-02. 주변 서브루틴들이 당신의 프로세스를 진단할 때 가장 많이 출력하는 로그는?",
+        question: "Q-02. 주변 사람들이 나에게 가장 자주 해주는 칭찬은?",
         choices: [
-          { text: "\"당신과 연결되어 있으면 심리 방화벽이 안정되고 보호받는 기분이다.\"", type: "CAREGIVER" },
-          { text: "\"당신은 어떤 치명적인 오류 앞에서도 기어코 승리를 쟁취해 낸다.\"", type: "HERO" },
-          { text: "\"권위적이지 않고 가장 수평적이며 편안하게 동기화되는 친구다.\"", type: "EVERYMAN" },
-          { text: "\"당신에게는 현실의 판도를 뒤바꾸는 미지의 직관과 아우라가 있다.\"", type: "MAGICIAN" }
+          { text: "\"너랑 이야기하면 마음이 편안해지고 위로받는 기분이야.\"", type: "CAREGIVER" },
+          { text: "\"너는 맡은 일은 어떻게든 해내는 책임감과 끈기가 있어.\"", type: "HERO" },
+          { text: "\"가식 없이 편안하고 누구와도 잘 어울리는 사람이야.\"", type: "EVERYMAN" },
+          { text: "\"상황을 넓게 보고 핵심을 짚어내는 감각이 남달라.\"", type: "MAGICIAN" }
         ]
       },
       {
-        question: "Q-03. 팀 네트워크에 치명적인 보안 크래시가 발생했을 때 당신의 즉각 반응은?",
+        question: "Q-03. 팀 프로젝트나 모임에서 예기치 못한 위기가 생겼을 때 나는?",
         choices: [
-          { text: "중앙 통제권을 쥐고 규칙을 재정립하여 시스템의 질서를 수복한다.", type: "RULER" },
-          { text: "\"기존 방화벽 체계가 글러먹었어!\" 판을 엎고 전면 리셋을 감행한다.", type: "REBEL" },
-          { text: "손상된 주변 노드들의 에러 로그를 먼저 살피며 복구 쉴드를 친다.", type: "CAREGIVER" },
-          { text: "크래시 덤프 로그를 차분하게 역추적해 객관적인 버그 근본을 캔다.", type: "SAGE" }
+          { text: "앞장서서 역할을 다시 나누고 혼란스러운 상황을 정돈한다.", type: "RULER" },
+          { text: "\"기존 방식이 비효율적이야!\" 과감하게 다른 접근법을 시도한다.", type: "REBEL" },
+          { text: "팀원들이 당황하거나 상처받지 않도록 마음을 먼저 다독인다.", type: "CAREGIVER" },
+          { text: "문제가 생긴 원인을 침착하게 분석해서 해결책을 제시한다.", type: "SAGE" }
         ]
       },
       {
-        question: "Q-04. 당신의 생체 코드가 가장 높게 책정하는 최상위 운영 가치는?",
+        question: "Q-04. 내가 삶에서 가장 중요하게 여기는 가치는?",
         choices: [
-          { text: "무결한 신뢰와 왜곡 없는 순수한 행복의 보존", type: "INNOCENT" },
-          { text: "온 영혼을 다해 주파수를 맞출 수 있는 깊은 사랑과 결속", type: "LOVER" },
-          { text: "보이지 않는 잠재력을 현실의 기적으로 변환하는 힘", type: "MAGICIAN" },
-          { text: "어떤 외압에도 흔들리지 않고 시스템 전체를 지배하는 통제력", type: "RULER" }
+          { text: "서로를 믿을 수 있는 안전함과 소박한 행복", type: "INNOCENT" },
+          { text: "진심을 나눌 수 있는 깊은 관계와 열정", type: "LOVER" },
+          { text: "새로운 패러다임을 열고 의미 있는 변화를 만드는 것", type: "MAGICIAN" },
+          { text: "흔들리지 않는 체계와 안정적으로 유지되는 질서", type: "RULER" }
         ]
       },
       {
-        question: "Q-05. 당신의 CPU가 가장 심각한 쓰로틀링(과열 정지)을 겪는 최악의 환경은?",
+        question: "Q-05. 내가 가장 답답하고 지치기 쉬운 환경은?",
         choices: [
-          { text: "획일화된 규칙에 갇혀 탐색 반경이 0으로 제한된 폐쇄형 공간", type: "EXPLORER" },
-          { text: "비효율적인 구시대 관습을 무비판적으로 복종시키는 위선적 시스템", type: "REBEL" },
-          { text: "어떠한 위트나 탈출구도 없이 극도로 경직된 무감각한 환경", type: "JESTER" },
-          { text: "나의 성과와 가치가 전혀 인정받지 못하는 무기력한 런타임", type: "HERO" }
+          { text: "사소한 규칙이 너무 많고 자유가 제한되는 꽉 막힌 환경", type: "EXPLORER" },
+          { text: "불합리한 관행을 '원래 그렇다'며 강요하는 조직", type: "REBEL" },
+          { text: "어떠한 유머나 여유도 없이 지나치게 무거운 분위기", type: "JESTER" },
+          { text: "내가 노력한 만큼의 성과와 성취를 인정해주지 않는 상황", type: "HERO" }
         ]
       },
       {
-        question: "Q-06. 갈림길의 의사결정에서 당신의 시스템이 최종 승인하는 기준은?",
+        question: "Q-06. 중요한 선택의 갈림길에 섰을 때 나의 주된 기준은?",
         choices: [
-          { text: "\"내 심박 엔진을 뛰게 하는가? 진정으로 매혹을 느끼는가?\"", type: "LOVER" },
-          { text: "\"기존 복제본이 아닌, 오직 나만의 독창적인 설계가 담겨 있는가?\"", type: "CREATOR" },
-          { text: "\"어떤 노드도 소외되지 않고 모두에게 평등하게 이로운가?\"", type: "EVERYMAN" },
-          { text: "\"원칙에 부합하며 선량한 믿음을 훼손하지 않는 길인가?\"", type: "INNOCENT" }
+          { text: "\"내 마음이 진심으로 두근거리고 애정이 가는 길인가?\"", type: "LOVER" },
+          { text: "\"남의 방식을 흉내 내지 않고 나다운 독창성을 살릴 수 있는가?\"", type: "CREATOR" },
+          { text: "\"누구 한 사람 소외되지 않고 모두에게 상식적인가?\"", type: "EVERYMAN" },
+          { text: "\"도덕적으로 떳떳하며 긍정적인 가치를 담고 있는가?\"", type: "INNOCENT" }
         ]
       },
       {
-        question: "Q-07. 당신이 꿈꾸는 이상적인 오퍼레이터(리더)의 프로토콜은?",
+        question: "Q-07. 내가 생각하는 가장 이상적인 리더의 모습은?",
         choices: [
-          { text: "견고한 체계와 리소스 분배로 전체 네트워크 번영을 주도하는 지휘관", type: "RULER" },
-          { text: "최전선에서 장벽을 파쇄하고 불가능한 미션을 돌파하는 돌격형 리더", type: "HERO" },
-          { text: "숨겨진 차원의 가능성을 예견하고 사람들을 새로운 비전으로 이끄는 자", type: "MAGICIAN" },
-          { text: "구성원들의 결핍을 조용히 메워주는 헌신적인 서포터형 리더", type: "CAREGIVER" }
+          { text: "명확한 규율과 시스템으로 조직 전체를 안정시키는 리더", type: "RULER" },
+          { text: "직접 앞장서서 장애물을 돌파하며 본보기가 되는 리더", type: "HERO" },
+          { text: "사람들에게 새로운 비전과 영감을 불어넣어 주는 리더", type: "MAGICIAN" },
+          { text: "구성원들의 고충을 조용히 챙겨주는 든든한 서포터형 리더", type: "CAREGIVER" }
         ]
       },
       {
-        question: "Q-08. 에너지가 고갈된 상태에서 시스템을 급속 재충전하는 최선의 방식은?",
+        question: "Q-08. 하루 일과를 마치고 나에게 가장 큰 힐링이 되는 시간은?",
         choices: [
-          { text: "심각성을 잊고 실컷 웃음을 터뜨릴 수 있는 유희와 대화", type: "JESTER" },
-          { text: "복잡한 세상을 로그아웃하고 깊이 있는 사색과 지식 탐독에 몰입", type: "SAGE" },
-          { text: "방해받지 않고 나만의 작업물이나 코드를 빚어내는 창작 세션", type: "CREATOR" },
-          { text: "내가 깊이 사랑하고 아끼는 존재와의 1:1 온기 공유", type: "LOVER" }
+          { text: "재미있는 예능이나 쇼츠를 보며 가볍게 한바탕 웃는 시간", type: "JESTER" },
+          { text: "조용히 생각을 비우며 관심 있는 글을 읽거나 사색하는 시간", type: "SAGE" },
+          { text: "나만의 취미 작업이나 무언가를 직접 만들고 다듬는 시간", type: "CREATOR" },
+          { text: "내가 아끼는 사람과 맛있는 걸 먹으며 속 깊은 대화를 나누는 시간", type: "LOVER" }
         ]
       },
       {
-        question: "Q-09. 새로운 네트워크 집단에 편입되었을 때 당신이 취하는 기본 인터페이스는?",
+        question: "Q-09. 새로운 모임에 들어갔을 때 나의 자연스러운 모습은?",
         choices: [
-          { text: "모나지 않게 주변의 주파수에 보폭을 맞추며 자연스레 녹아든다.", type: "EVERYMAN" },
-          { text: "기존의 이상한 위계서열을 비웃듯 무시하고 마이웨이로 독자 행동한다.", type: "REBEL" },
-          { text: "남들이 경험해보지 못한 바깥세상의 희귀한 데이터를 들려준다.", type: "EXPLORER" },
-          { text: "선의와 편견 없는 태도로 먼저 시스템 통신 포트를 개방한다.", type: "INNOCENT" }
+          { text: "튀지 않고 친근하게 주변 사람들과 무난하게 어울린다.", type: "EVERYMAN" },
+          { text: "형식적인 예의나 어색한 틀에 얽매이지 않고 편하게 행동한다.", type: "REBEL" },
+          { text: "새로운 환경이나 사람들의 이야기에 호기심을 갖고 탐색한다.", type: "EXPLORER" },
+          { text: "편견 없이 긍정적인 미소로 사람들을 먼저 맞이한다.", type: "INNOCENT" }
         ]
       },
       {
-        question: "Q-10. 프로젝트를 컴파일하거나 작업할 때 당신이 병적으로 고집하는 것은?",
+        question: "Q-10. 무언가를 기획하거나 일할 때 가장 신경 쓰는 부분은?",
         choices: [
-          { text: "남의 복제가 아닌, 나만의 독보적인 철학과 예술적 무결성", type: "CREATOR" },
-          { text: "어떤 엣지 케이스도 방어할 수 있는 정교한 구조와 통제력", type: "RULER" },
-          { text: "주관적 감정이 배제된 순수 팩트와 논리적 인과율", type: "SAGE" },
-          { text: "사용자의 심장을 뒤흔드는 강렬한 감동과 몰입감", type: "LOVER" }
+          { text: "흔한 흉내가 아닌, 나만의 독창적인 아이디어와 개성", type: "CREATOR" },
+          { text: "일정이나 역할이 명확히 돌아가는 꼼꼼한 프로세스", type: "RULER" },
+          { text: "충분한 근거와 팩트에 기반한 논리적인 완성도", type: "SAGE" },
+          { text: "사람들의 마음을 움직이고 진한 공감을 이끌어내는 요소", type: "LOVER" }
         ]
       },
       {
-        question: "Q-11. 동료 노드가 불합리한 처사를 당해 에러를 뿜을 때 당신의 제1 대응은?",
+        question: "Q-11. 친구가 억울하고 속상한 일을 털어놓을 때 나의 첫 반응은?",
         choices: [
-          { text: "\"가만히 당하지 마! 판을 엎고 버그를 낱낱이 까발리자!\"", type: "REBEL" },
-          { text: "\"괜찮아, 네 잘못이 아니야.\" 온화한 온도로 상처를 패치해 준다.", type: "CAREGIVER" },
-          { text: "\"걱정 마. 내가 직접 개입해서 반드시 승리하도록 판을 짤게.\"", type: "HERO" },
-          { text: "순간을 환기하는 농담으로 긴장을 풀고 시스템 과열을 식혀준다.", type: "JESTER" }
+          { text: "\"가만있지 말고 정당하게 문제를 제기해!\" 분개하며 편을 든다.", type: "REBEL" },
+          { text: "\"정말 속상했겠다...\" 따뜻하게 위로하며 이야기를 끝까지 들어준다.", type: "CAREGIVER" },
+          { text: "\"내가 도와줄게. 어떻게 해결하면 좋을지 같이 찾아보자.\"", type: "HERO" },
+          { text: "기분을 풀어주기 위해 유쾌한 농담으로 분위기를 환기한다.", type: "JESTER" }
         ]
       },
       {
-        question: "Q-12. 뉴럴 파워가 영구 방전 직전에 달했을 때 무의식적으로 작동하는 안전모드는?",
+        question: "Q-12. 몸과 마음이 완전히 지쳤을 때 나만의 긴급 충전법은?",
         choices: [
-          { text: "모든 외부 핑을 차단하고 낯선 곳으로 무작정 방랑을 떠난다.", type: "EXPLORER" },
-          { text: "외부 신호를 끄고 내면의 심연과 직관의 목소리에 깊게 접속한다.", type: "MAGICIAN" },
-          { text: "가장 소박한 일상으로 돌아가 편안한 노드들과 침묵을 공유한다.", type: "EVERYMAN" },
-          { text: "\"결국 선한 결말이 올 거야.\" 순수했던 초기 데이터를 복기한다.", type: "INNOCENT" }
+          { text: "잠시 스마트폰을 내려놓고 바람 쐬러 나가거나 산책을 한다.", type: "EXPLORER" },
+          { text: "혼자만의 방에서 조용히 내 마음 상태를 차분히 돌아본다.", type: "MAGICIAN" },
+          { text: "가장 편안한 옷을 입고 익숙한 사람들과 소박한 시간을 보낸다.", type: "EVERYMAN" },
+          { text: "\"결국 다 잘 될 거야.\" 긍정적인 생각과 힐링 음악을 찾는다.", type: "INNOCENT" }
         ]
       },
       {
-        question: "Q-13. 막대한 추가 자원(버짓/자금)이 배정되었을 때 가장 먼저 호출할 함수는?",
+        question: "Q-13. 여유 자금이나 뜻밖의 보너스가 생겼을 때 나의 소비 스타일은?",
         choices: [
-          { text: "창작 역량을 극한으로 끌어올릴 고성능 아키텍처/장비 풀세팅", type: "CREATOR" },
-          { text: "목적지가 정해지지 않은 오프그리드 원정 티켓 예약", type: "EXPLORER" },
-          { text: "흔들리지 않는 거버넌스와 안전 자산 분산 방어망 구축", type: "RULER" },
-          { text: "주변의 결핍된 노드를 후원하거나 소중한 존재에게 필요한 자원 공급", type: "CAREGIVER" }
+          { text: "평소 관심 있던 취미 용품이나 창작 도구를 구입한다.", type: "CREATOR" },
+          { text: "기분 전환을 위해 즉흥적인 여행이나 새로운 체험에 쓴다.", type: "EXPLORER" },
+          { text: "안정적인 미래를 위해 저축하거나 재정 계획을 점검한다.", type: "RULER" },
+          { text: "가족이나 소중한 사람에게 선물을 사주거나 맛있는 것을 대접한다.", type: "CAREGIVER" }
         ]
       },
       {
-        question: "Q-14. 뼈아픈 시스템 다운(실패와 좌절)을 겪었을 때 당신의 코어가 보이는 반응은?",
+        question: "Q-14. 노력했던 일이 뜻대로 풀리지 않았을 때 나의 모습은?",
         choices: [
-          { text: "\"이대로 셧다운될 순 없어!\" 클럭을 두 배로 높여 설욕을 준비한다.", type: "HERO" },
-          { text: "원인을 복기하고 로그 파일을 정밀 분석하여 디버깅 노트를 작성한다.", type: "SAGE" },
-          { text: "\"인생이라는 코드가 다 그렇지 뭐!\" 쿨하게 웃어넘기며 털어낸다.", type: "JESTER" },
-          { text: "\"분명 더 좋은 뜻이 있을 거야.\" 긍정의 원점을 잃지 않으려 다독인다.", type: "INNOCENT" }
+          { text: "\"여기서 포기할 수 없지!\" 마음을 다잡고 다시 도전한다.", type: "HERO" },
+          { text: "무엇이 부족했는지 원인을 차분히 짚어보고 보완책을 찾는다.", type: "SAGE" },
+          { text: "\"살다 보면 그럴 수도 있지!\" 훌훌 털어내고 웃어넘긴다.", type: "JESTER" },
+          { text: "\"더 좋은 기회가 올 거야.\" 긍정적인 마음가짐을 잃지 않는다.", type: "INNOCENT" }
         ]
       },
       {
-        question: "Q-15. 정반대의 패러다임을 가진 이질적 노드와 협업해야 할 때 당신의 처세술은?",
+        question: "Q-15. 성격이 전혀 맞지 않는 동료와 협업해야 할 때 나의 처세는?",
         choices: [
-          { text: "상식적인 범위에서 충돌을 피하며 무난하게 인터페이스를 맞춘다.", type: "EVERYMAN" },
-          { text: "상대의 무의식 트리거를 꿰뚫어 보고 자연스레 내 페이스로 유도한다.", type: "MAGICIAN" },
-          { text: "타협할 생각 없이, 상대의 모순과 논리 결함을 정면으로 짚어낸다.", type: "REBEL" },
-          { text: "진심 어린 교감과 개인적 호감을 먼저 형성하여 경계심을 해제시킨다.", type: "LOVER" }
+          { text: "감정적인 마찰을 줄이고 공적인 선에서 무난하게 보폭을 맞춘다.", type: "EVERYMAN" },
+          { text: "상대의 성향을 파악해 서로 윈윈할 수 있는 절충점을 찾는다.", type: "MAGICIAN" },
+          { text: "불합리하거나 비효율적인 부분은 명확하게 짚고 넘어간다.", type: "REBEL" },
+          { text: "먼저 식사 자리를 제안하며 인간적인 공감대를 넓혀본다.", type: "LOVER" }
         ]
       },
       {
-        question: "Q-16. 사이버펑크 픽션을 볼 때 당신의 가슴을 가장 뛰게 하는 캐릭터는?",
+        question: "Q-16. 영화나 드라마를 볼 때 가장 마음이 가는 캐릭터는?",
         choices: [
-          { text: "절체절명의 위기를 온몸으로 뚫고 승리를 쟁취하는 주인공", type: "HERO" },
-          { text: "거대 기업의 위선적인 시스템에 균열을 내는 언더그라운드 해커", type: "REBEL" },
-          { text: "세상의 몰이해 속에서도 궁극의 인공지능을 빚어내는 괴짜 아키텍트", type: "CREATOR" },
-          { text: "디스토피아 속에서도 인간의 순수한 마음을 끝까지 지키는 영혼", type: "INNOCENT" }
+          { text: "역경을 딛고 끝내 자신의 목표를 이뤄내는 인물", type: "HERO" },
+          { text: "불합리한 시스템에 얽매이지 않고 자신만의 룰대로 사는 인물", type: "REBEL" },
+          { text: "주변의 몰이해 속에서도 자신만의 작품과 가치를 고집하는 장인", type: "CREATOR" },
+          { text: "각박한 세상 속에서도 따뜻한 순수함과 선함을 간직한 인물", type: "INNOCENT" }
         ]
       },
       {
-        question: "Q-17. 누군가 무리한 요구로 나의 시스템 영역을 침범하려 할 때 나는?",
+        question: "Q-17. 친구가 무리한 부탁을 해왔을 때 나의 대응은?",
         choices: [
-          { text: "단호한 프로토콜로 내 영역과 한계선을 명확히 선언해 차단한다.", type: "RULER" },
-          { text: "차마 거절하면 상대가 셧다운될까 염려되어 내 리소스를 떼어준다.", type: "CAREGIVER" },
-          { text: "주변의 눈치를 살피며 상식적인 선에서 완곡하게 피해간다.", type: "EVERYMAN" },
-          { text: "구구절절 논쟁하기보다 그 자리에서 조용히 접속을 끊고 사라진다.", type: "EXPLORER" }
+          { text: "지킬 수 있는 한계를 명확히 설명하고 정중하게 거절한다.", type: "RULER" },
+          { text: "거절하면 상대가 곤란해할까 봐 차마 거절하지 못하고 돕는다.", type: "CAREGIVER" },
+          { text: "주변 다른 사람들의 분위기나 의견을 살피며 조심스럽게 반응한다.", type: "EVERYMAN" },
+          { text: "불필요한 갈등을 피해 자연스럽게 핑계를 대고 빠져나온다.", type: "EXPLORER" }
         ]
       },
       {
-        question: "Q-18. 두 노드가 영구적인 신뢰 링크를 유지하기 위해 가장 필수적인 것은?",
+        question: "Q-18. 오래가는 깊은 인간관계를 위해 가장 필요한 것은?",
         choices: [
-          { text: "가장 은밀한 비밀 데이터까지 남김없이 공유할 수 있는 친밀감", type: "LOVER" },
-          { text: "특권이나 위계 없이 동등하게 서로의 짐을 나눌 수 있는 편안함", type: "EVERYMAN" },
-          { text: "지적 자극을 주고받으며 시스템을 동반 업그레이드하는 대화", type: "SAGE" },
-          { text: "아무런 목적 없이 신호를 주고받아도 웃음이 터지는 유쾌함", type: "JESTER" }
+          { text: "서로의 진솔한 속마음과 감정을 나눌 수 있는 친밀감", type: "LOVER" },
+          { text: "특별한 조건 없이 있는 그대로의 편한 모습을 받아주는 편안함", type: "EVERYMAN" },
+          { text: "서로에게 긍정적인 자극과 배움을 줄 수 있는 대화", type: "SAGE" },
+          { text: "함께 있는 것만으로도 웃음이 터지고 유쾌한 에너지", type: "JESTER" }
         ]
       },
       {
-        question: "Q-19. 당신이 시스템적으로 가장 경멸하고 절대 닮고 싶지 않은 형태는?",
+        question: "Q-19. 함께 일하거나 지내기 가장 꺼려지는 사람의 유형은?",
         choices: [
-          { text: "눈앞의 현실에 안주하여 어떤 미래 비전도 꿈꾸지 못하는 자", type: "MAGICIAN" },
-          { text: "부당한 억압을 받으면서도 시스템의 부품으로 침묵하는 비겁자", type: "REBEL" },
-          { text: "자신의 이익만 챙기고 타인의 고통 로그에는 무관심한 자", type: "CAREGIVER" },
-          { text: "사소한 부하에도 쉽게 징징대고 포기해 버리는 나약한 자", type: "HERO" }
+          { text: "어떠한 발전적인 아이디어나 비전도 없이 수동적인 사람", type: "MAGICIAN" },
+          { text: "부당한 대우를 받으면서도 무조건 눈치만 보며 순응하는 사람", type: "REBEL" },
+          { text: "자신의 이익만 챙기고 타인의 배려에는 둔감한 이기적인 사람", type: "CAREGIVER" },
+          { text: "어려운 일이 생기면 쉽게 징징대고 남 탓으로 돌리는 사람", type: "HERO" }
         ]
       },
       {
-        question: "Q-20. 반복되는 일상 속에서 시스템 공허(Null) 에러가 감지될 때 나의 조치는?",
+        question: "Q-20. 매일 반복되는 일상에 지루함이 찾아왔을 때 나의 행동은?",
         choices: [
-          { text: "당장 짐을 싸서 일상을 탈출하거나 새로운 모험 루틴을 가동한다.", type: "EXPLORER" },
-          { text: "그 공허함을 글, 그래픽, 코드 등 창작물로 승화시켜 컴파일한다.", type: "CREATOR" },
-          { text: "노드들을 소집해 떠들썩하게 놀며 웃음으로 버그를 소거한다.", type: "JESTER" },
-          { text: "명상과 사색으로 무의식의 심연이 보내는 직관 신호를 해석한다.", type: "MAGICIAN" }
+          { text: "새로운 취미를 배우거나 새로운 동선으로 다녀본다.", type: "EXPLORER" },
+          { text: "나만의 아이디어를 기록하거나 창의적인 표현을 시도한다.", type: "CREATOR" },
+          { text: "사람들을 모아 즐거운 저녁 자리를 마련한다.", type: "JESTER" },
+          { text: "새로운 목표나 습관을 세워 생활의 루틴을 정비한다.", type: "MAGICIAN" }
         ]
       },
       {
-        question: "Q-21. 당신이 속한 조직에서 가장 용납하기 어려운 시스템 결함은?",
+        question: "Q-21. 내가 속한 조직에서 가장 개선하고 싶은 모습은?",
         choices: [
-          { text: "지휘 체계가 붕괴되어 모두가 갈팡질팡하는 거버넌스 부재", type: "RULER" },
-          { text: "서로를 의심하고 뒤에서 패킷을 변조하는 음험한 불신", type: "INNOCENT" },
-          { text: "검증된 데이터와 팩트 없이 뜬소문과 편향으로 결정을 내리는 것", type: "SAGE" },
-          { text: "인간에 대한 애정 없이 서로를 단순 부품으로만 착취하는 것", type: "LOVER" }
+          { text: "역할 분담이 불분명하고 체계 없이 돌아가는 비효율", type: "RULER" },
+          { text: "서로를 믿지 못하고 뒤에서 험담이 오가는 삭막한 공기", type: "INNOCENT" },
+          { text: "정확한 사실 확인 없이 짐작과 소문으로 의사결정을 내리는 것", type: "SAGE" },
+          { text: "동료에 대한 따뜻한 배려 없이 기계적으로만 일하는 태도", type: "LOVER" }
         ]
       },
       {
-        question: "Q-22. 당신에게 있어 '진정한 성공'이라는 함수의 리턴 값은?",
+        question: "Q-22. 나에게 진정한 의미의 '성공적인 삶'이란?",
         choices: [
-          { text: "누구도 넘볼 수 없는 압도적 실력으로 최정상에 도달하는 것", type: "HERO" },
-          { text: "세상의 낡은 패러다임을 깨부수고 기적 같은 도약을 이끄는 것", type: "MAGICIAN" },
-          { text: "소중한 이웃들과 함께 소박하고 평화로운 일상을 지키는 것", type: "EVERYMAN" },
-          { text: "어떤 오염에도 물들지 않고 맑고 순수한 본성을 지켜내는 것", type: "INNOCENT" }
+          { text: "스스로 세운 높은 기준을 뛰어넘어 당당하게 인정받는 것", type: "HERO" },
+          { text: "많은 사람들에게 긍정적인 영감과 의미 있는 영향을 주는 것", type: "MAGICIAN" },
+          { text: "좋은 사람들과 어우러져 소박하고 평화롭게 살아가는 것", type: "EVERYMAN" },
+          { text: "어떤 환경에서도 맑고 긍정적인 마음을 잃지 않는 것", type: "INNOCENT" }
         ]
       },
       {
-        question: "Q-23. 복잡한 문제를 해결해야 할 때 당신의 프로세서가 1순위로 실행하는 방식은?",
+        question: "Q-23. 새롭고 복잡한 문제를 해결해야 할 때 나의 접근법은?",
         choices: [
-          { text: "관련 논문, 데이터베이스, 공식 문서를 철저하게 수집/분석한다.", type: "SAGE" },
-          { text: "전체적인 영감과 직관으로 문제 이면에 숨겨진 핵심 변수를 짚는다.", type: "MAGICIAN" },
-          { text: "역할을 분배하고 프로세스를 구조화하여 파이프라인으로 푼다.", type: "RULER" },
-          { text: "직접 현장에 몸으로 부딪쳐 다양한 변수를 탐색하며 단서를 찾는다.", type: "EXPLORER" }
+          { text: "관련 자료와 사례를 꼼꼼하게 찾아보며 사실에 기반해 푼다.", type: "SAGE" },
+          { text: "전체적인 흐름과 핵심 원인을 직관적으로 파악해 본다.", type: "MAGICIAN" },
+          { text: "단계별 체크리스트를 만들고 우선순위를 정해 실행한다.", type: "RULER" },
+          { text: "일단 직접 부딪쳐보며 몸으로 단서를 찾아나간다.", type: "EXPLORER" }
         ]
       },
       {
-        question: "Q-24. 나만의 비밀 연구실/아지트를 구축할 때 가장 우선시하는 세팅은?",
+        question: "Q-24. 온전한 나만의 공간(방/작업실)을 꾸민다면 가장 신경 쓸 부분은?",
         choices: [
-          { text: "소중한 이들이 언제든 찾아와 안식을 얻을 수 있는 포근한 방어막", type: "CAREGIVER" },
-          { text: "볼 때마다 웃음이 나오는 기발하고 위트 있는 오브제들", type: "JESTER" },
-          { text: "조명과 음악이 완벽하게 조화된 감각적이고 매혹적인 무드", type: "LOVER" },
-          { text: "기성품 없이 내 손으로 직접 커스텀한 독창적인 창작물들", type: "CREATOR" }
+          { text: "가족이나 지인이 언제든 찾아와 편히 쉴 수 있는 아늑함", type: "CAREGIVER" },
+          { text: "보기만 해도 기분이 유쾌해지는 독특하고 재미있는 소품", type: "JESTER" },
+          { text: "따뜻한 조명과 음악 등 감성을 채워주는 은은한 무드", type: "LOVER" },
+          { text: "기성품보다 내 취향과 손길이 닿은 독창적인 인테리어", type: "CREATOR" }
         ]
       }
     ];
@@ -841,14 +824,14 @@
     let currentArchiveIdx = 0;
     const hexNumbers = ["0x01", "0x02", "0x03", "0x04"];
 
-    // 시스템 부팅 연출
+    // 1. 부팅 시퀀스
     function startBootSequence() {
       const logBox = document.getElementById('boot-log-box');
       const logs = [
-        "> ALLOCATING NEURAL BUFFER...",
-        "> ESTABLISHING SYNAPSE LINK (24 NODES)...",
+        "> ALLOCATING PSYCHE BUFFER...",
+        "> ESTABLISHING NEURAL LINK (24 NODES)...",
         "> SCANNING UNCONSCIOUS ARCHIVE...",
-        "> SYSTEM READY. COMMENCING PSYCHE SCAN."
+        "> READY. COMMENCING PSYCHE SCAN"
       ];
 
       let step = 0;
@@ -867,7 +850,7 @@
       }, 220);
     }
 
-    // 1안 세로 리스트형 문답 렌더링
+    // 2. 1안 세로 리스트형 문답 렌더링
     function renderScanQuestion() {
       const q = questions[currentIndex];
       const stepNum = (currentIndex + 1).toString().padStart(2, '0');
@@ -903,11 +886,11 @@
           box.style.pointerEvents = 'none';
           btn.classList.add('clicked');
 
-          // 0.22초 찰나의 피드백 후 즉시 다음 단계 전진
+          // 0.2초 찰나의 피드백 후 즉시 다음 단계 전진
           setTimeout(() => {
             box.style.pointerEvents = 'auto';
             selectResponse(choice.type);
-          }, 220);
+          }, 200);
         };
 
         box.appendChild(btn);
@@ -925,7 +908,7 @@
       }
     }
 
-    // 결과 텔레메트리 리포트 산출
+    // 3. 결과 텔레메트리 리포트 산출
     function renderTelemetryReport() {
       document.getElementById('progress-line').style.width = '100%';
       document.getElementById('recon-tag').innerText = `RECONSTRUCTION: 100%`;
@@ -941,6 +924,15 @@
       userResultType = topCandidates[Math.floor(Math.random() * topCandidates.length)];
       const res = archetypes[userResultType];
 
+      // 응답 기반 실시간 동적 텐서 연산
+      const resonance = Math.min(98, Math.round(72 + (maxScore / 8) * 26));
+      const stabilityScore = (scores.RULER + scores.CAREGIVER + scores.INNOCENT) - (scores.REBEL + scores.JESTER);
+      const stability = Math.max(45, Math.min(95, Math.round(70 + stabilityScore * 4)));
+      const intuitiveScore = (scores.MAGICIAN + scores.CREATOR + scores.SAGE);
+      const intuitive = Math.max(50, Math.min(98, Math.round(62 + (intuitiveScore / 6) * 32)));
+      const decisionScore = (scores.HERO + scores.RULER + scores.REBEL) - (scores.LOVER + scores.CAREGIVER);
+      const decision = Math.max(48, Math.min(96, Math.round(68 + decisionScore * 3)));
+
       document.getElementById('scan-view').style.display = 'none';
       const resultView = document.getElementById('result-view');
       resultView.style.display = 'block';
@@ -948,54 +940,55 @@
       resultView.innerHTML = `
         <div class="telemetry-ticket">
           <div class="ticket-top-tag">
-            <span>UNCONSCIOUS CORE TELEMETRY REPORT</span>
+            <span>[접속자 무의식 코어 분석 리포트]</span>
             <span>ID: ${res.code}</span>
           </div>
           
           <h2 class="ticket-core-title">${res.title}</h2>
           <div class="ticket-sync-rate">
-            COGNITIVE RESONANCE: ${res.syncRate}% · ${res.badge}
+            TYPE: ${userResultType} (${resonance}% COGNITIVE RESONANCE) · ${res.badge}
           </div>
 
-          <!-- 신경망 스탯 텐서 그래프 -->
+          <!-- 내 결과 리포트에만 출력되는 텐서 게이지 바 -->
           <div class="tensor-group">
+            <div class="tensor-title">SYSTEM TENSOR ANALYSIS (신경망 스탯 지표)</div>
             <div class="tensor-row">
-              <span>SYSTEM STABILITY (심리 안정성)</span>
-              <span>${res.stats.stability}%</span>
+              <span>SYSTEM STABILITY (심리적 안정성)</span>
+              <span>${stability}%</span>
             </div>
-            <div class="tensor-bar-bg"><div class="tensor-bar-fill" style="width: ${res.stats.stability}%;"></div></div>
+            <div class="tensor-bar-bg"><div class="tensor-bar-fill" style="width: ${stability}%;"></div></div>
 
             <div class="tensor-row">
-              <span>NEURAL INTUITION (직관력 텐서)</span>
-              <span>${res.stats.intuition}%</span>
+              <span>NEURAL INTUITION (본능적 통찰력)</span>
+              <span>${intuitive}%</span>
             </div>
-            <div class="tensor-bar-bg"><div class="tensor-bar-fill" style="width: ${res.stats.intuition}%;"></div></div>
+            <div class="tensor-bar-bg"><div class="tensor-bar-fill" style="width: ${intuitive}%"></div></div>
 
             <div class="tensor-row">
-              <span>LOGICAL RESOLUTION (해석 결단력)</span>
-              <span>${res.stats.logic}%</span>
+              <span>LOGICAL RESOLUTION (논리적 해석력)</span>
+              <span>${decision}%</span>
             </div>
-            <div class="tensor-bar-bg"><div class="tensor-bar-fill" style="width: ${res.stats.logic}%;"></div></div>
+            <div class="tensor-bar-bg"><div class="tensor-bar-fill" style="width: ${decision}%"></div></div>
           </div>
 
           <div class="ticket-desc-box">${res.desc}</div>
 
           <div class="ticket-footer-grid">
             <div>
-              <div>CLASSIFIED : PSYCHE-OS SECURE CERTIFICATE</div>
-              <div>HASH : SHA256-${Math.random().toString(36).substring(2, 10).toUpperCase()}</div>
+              <div>CLASSIFIED : PSYCHE-OS SECURE REPORT</div>
+              <div>SERIAL : ${Math.random().toString(36).substring(2, 9).toUpperCase()}</div>
             </div>
             <div class="qr-mock">[■■■■]</div>
           </div>
         </div>
 
-        <button class="cyber-btn" onclick="saveAndShareReport()">[ SAVE & SHARE CORE REPORT ]</button>
-        <button class="cyber-btn-sub" onclick="openArchiveViewer()">[ CLASSIFIED 12 ARCHETYPES DATABASE ]</button>
-        <button class="cyber-btn-sub" style="border-color: #314459; color: #728da8;" onclick="location.reload()">[ RE-INITIALIZE SCAN ]</button>
+        <button class="cyber-btn" onclick="saveAndShareReport()">[ ✦ 결과 리포트 이미지 저장 / 공유 ]</button>
+        <button class="cyber-btn-sub" onclick="openArchiveViewer()">[ ✦ 12대 성격 원형 전체 도감 열람 ]</button>
+        <button class="cyber-btn-sub" style="border-color: #314459; color: #728da8;" onclick="location.reload()">[ 처음부터 다시 진단하기 ]</button>
       `;
     }
 
-    // 12대 원형 기밀 아카이브 도감 뷰어
+    // 4. 12대 원형 도감 뷰어 (1안 적용: 텐서 바 완전 제거)
     function openArchiveViewer() {
       document.getElementById('result-view').style.display = 'none';
       document.getElementById('archive-view').style.display = 'block';
@@ -1023,40 +1016,25 @@
       document.getElementById('archive-counter').innerText = `RECORD ${entryNum}/12`;
       document.getElementById('archive-card-box').innerHTML = `
         <div class="ticket-top-tag">
-          <span>CLASSIFIED ARCHETYPE DATABASE</span>
+          <span>CLASSIFIED ARCHETYPE ARCHIVE</span>
           <span>ID: ${item.code}</span>
         </div>
         <h2 class="ticket-core-title">${item.title}</h2>
         <div class="ticket-sync-rate">${item.badge}</div>
-
-        <div class="tensor-group">
-          <div class="tensor-row">
-            <span>STABILITY</span><span>${item.stats.stability}%</span>
-          </div>
-          <div class="tensor-bar-bg"><div class="tensor-bar-fill" style="width: ${item.stats.stability}%;"></div></div>
-          <div class="tensor-row">
-            <span>INTUITION</span><span>${item.stats.intuition}%</span>
-          </div>
-          <div class="tensor-bar-bg"><div class="tensor-bar-fill" style="width: ${item.stats.intuition}%;"></div></div>
-          <div class="tensor-row">
-            <span>LOGIC</span><span>${item.stats.logic}%</span>
-          </div>
-          <div class="tensor-bar-bg"><div class="tensor-bar-fill" style="width: ${item.stats.logic}%;"></div></div>
-        </div>
-
-        <div class="ticket-desc-box">${item.desc}</div>
+        <!-- 1안: 텐서 바 영역 완전 제거 후 깔끔한 원형 본문만 렌더링 -->
+        <div class="ticket-desc-box" style="margin-bottom: 0;">${item.desc}</div>
       `;
     }
 
-    // 고화질 선명 캡처 및 공유 함수 (명도 저하 버그 해결 완비)
+    // 5. 고화질 선명 캡처 및 공유 함수 (명도 저하 방지 완료)
     async function saveAndShareReport() {
       const targetElement = document.querySelector('.telemetry-ticket');
       if (!targetElement) return;
 
       try {
         const canvas = await html2canvas(targetElement, {
-          backgroundColor: null,
-          scale: 2,
+          backgroundColor: null, // 배경 이중 덧칠로 인한 어두워짐 차단
+          scale: 2,              // 모바일 레티나 선명 화질
           useCORS: true,
           logging: false,
           onclone: (clonedDoc) => {
@@ -1080,7 +1058,7 @@
             try {
               await navigator.share({
                 title: 'PSYCHE-OS :: 피험자 무의식 코어 리포트',
-                text: '나의 무의식 심층 코어 분석 리포트를 확인하세요.',
+                text: '나의 무의식 코어 분석 리포트를 확인해보세요.',
                 files: [file]
               });
               return;

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>PSYCHE-OS :: 융의 12대 성격 원형 스캐너</title>
+  <title>PSYCHE-OS :: NEURAL ARCHETYPE SCANNER</title>
   
   <!-- 고화질 이미지 캡처 라이브러리 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -24,16 +24,16 @@
     }
 
     :root {
-      --bg-color: #06090e;
-      --terminal-bg: #090e17;
-      --terminal-border: #1a283c;
+      --bg-color: #05070a;
+      --terminal-bg: #090d14;
+      --terminal-border: #1a2636;
       --cyan-neon: #00f0ff;
-      --cyan-dim: rgba(0, 240, 255, 0.18);
+      --cyan-dim: rgba(0, 240, 255, 0.2);
       --amber-neon: #ffb800;
       --amber-dim: rgba(255, 184, 0, 0.2);
       --green-matrix: #00ff66;
-      --text-main: #dcf2fc;
-      --text-muted: #6b86a3;
+      --text-main: #d1f4ff;
+      --text-muted: #5e7a96;
     }
 
     body {
@@ -58,8 +58,8 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.28) 50%),
-                  radial-gradient(circle at center, transparent 65%, rgba(0, 0, 0, 0.65) 100%);
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+                  radial-gradient(circle at center, transparent 65%, rgba(0, 0, 0, 0.6) 100%);
       background-size: 100% 4px, 100% 100%;
       pointer-events: none;
       z-index: 999;
@@ -76,9 +76,9 @@
     .terminal-console {
       background: var(--terminal-bg);
       border: 1px solid var(--terminal-border);
-      border-radius: 14px;
+      border-radius: 12px;
       padding: 22px 18px 24px;
-      box-shadow: 0 14px 45px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 240, 255, 0.08);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 240, 255, 0.08);
       position: relative;
       overflow: hidden;
     }
@@ -88,7 +88,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #142032;
+      border-bottom: 1px solid #142030;
       padding-bottom: 10px;
       margin-bottom: 18px;
       font-size: 0.72rem;
@@ -116,13 +116,13 @@
     }
     .boot-banner {
       color: var(--amber-neon);
-      font-size: 0.78rem;
-      letter-spacing: 1.5px;
-      margin-bottom: 14px;
-      text-shadow: 0 0 8px var(--amber-dim);
+      font-size: 0.8rem;
+      letter-spacing: 1.4px;
+      margin-bottom: 16px;
+      text-shadow: 0 0 10px var(--amber-dim);
     }
     .boot-title {
-      font-size: 1.6rem;
+      font-size: 1.55rem;
       font-weight: 800;
       line-height: 1.35;
       color: #ffffff;
@@ -131,15 +131,15 @@
       word-break: keep-all;
     }
     .boot-spec-box {
-      background: #05080e;
-      border: 1px solid #142236;
+      background: #06090e;
+      border: 1px solid #162436;
       border-left: 3px solid var(--cyan-neon);
-      padding: 16px 14px;
-      border-radius: 6px;
-      font-size: 0.85rem;
+      padding: 14px;
+      border-radius: 4px;
+      font-size: 0.8rem;
       line-height: 1.7;
-      color: #a4c4e0;
-      margin-bottom: 18px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
       word-break: keep-all;
     }
     .boot-spec-box strong {
@@ -149,12 +149,13 @@
       background: #030508;
       border: 1px dashed #142233;
       padding: 12px;
-      border-radius: 6px;
-      min-height: 90px;
+      border-radius: 4px;
+      min-height: 95px;
       font-size: 0.73rem;
-      line-height: 1.65;
+      line-height: 1.6;
       color: var(--green-matrix);
       margin-bottom: 20px;
+      font-family: 'NeoDunggeunmo', monospace;
     }
 
     /* 2. 스캐너 진행 화면 */
@@ -174,9 +175,9 @@
     .progress-track {
       height: 6px;
       background: #0c1420;
-      border: 1px solid #182b42;
+      border: 1px solid #192b42;
       border-radius: 3px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       overflow: hidden;
       padding: 1px;
     }
@@ -194,7 +195,7 @@
       color: #5d7e9f;
       background: #04070c;
       border: 1px solid #111d2b;
-      padding: 7px 10px;
+      padding: 6px 10px;
       border-radius: 4px;
       margin-bottom: 18px;
       white-space: nowrap;
@@ -206,11 +207,11 @@
     }
 
     .prompt-query {
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       line-height: 1.6;
       color: #ffffff;
       margin-bottom: 22px;
-      min-height: 56px;
+      min-height: 58px;
       text-align: left;
       word-break: keep-all;
     }
@@ -224,18 +225,18 @@
 
     .cyber-choice-btn {
       position: relative;
-      background: #070c14;
-      border: 1px solid #16263b;
-      border-radius: 10px;
+      background: #070b12;
+      border: 1px solid #182638;
+      border-radius: 8px;
       padding: 15px 16px 15px 44px;
-      color: #cadbee;
+      color: #c4d7ec;
       font-family: inherit;
       font-size: 0.88rem;
       line-height: 1.55;
       text-align: left;
       cursor: pointer;
       word-break: keep-all;
-      transition: all 0.16s ease;
+      transition: all 0.15s ease;
       display: flex;
       align-items: center;
     }
@@ -247,7 +248,7 @@
       transform: translateX(3px);
     }
     .cyber-choice-btn.clicked {
-      background: rgba(0, 240, 255, 0.22) !important;
+      background: rgba(0, 240, 255, 0.2) !important;
       border-color: var(--cyan-neon) !important;
       color: #ffffff !important;
       box-shadow: 0 0 18px rgba(0, 240, 255, 0.5) !important;
@@ -255,11 +256,10 @@
 
     .choice-hex {
       position: absolute;
-      left: 14px;
+      left: 12px;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 0.78rem;
-      font-weight: bold;
+      font-size: 0.72rem;
       color: var(--amber-neon);
       letter-spacing: 1px;
     }
@@ -268,7 +268,7 @@
     .telemetry-ticket {
       background: #060a12;
       border: 1px solid #00f0ff;
-      border-radius: 10px;
+      border-radius: 8px;
       padding: 22px 18px;
       text-align: left;
       position: relative;
@@ -277,15 +277,15 @@
     .ticket-top-tag {
       display: flex;
       justify-content: space-between;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       letter-spacing: 2px;
       color: var(--amber-neon);
-      border-bottom: 1px dashed #1c334d;
+      border-bottom: 1px dashed #1c324b;
       padding-bottom: 8px;
       margin-bottom: 14px;
     }
     .ticket-core-title {
-      font-size: 1.55rem;
+      font-size: 1.5rem;
       font-weight: 800;
       color: #ffffff;
       margin-bottom: 6px;
@@ -297,7 +297,7 @@
       background: rgba(0, 240, 255, 0.12);
       border: 1px solid var(--cyan-neon);
       color: var(--cyan-neon);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       padding: 4px 10px;
       border-radius: 4px;
       margin-bottom: 16px;
@@ -305,12 +305,12 @@
 
     /* 신경망 스탯 텐서 바 (내 결과 리포트에만 적용) */
     .tensor-group {
-      background: #03050a;
-      border: 1px solid #132236;
-      padding: 14px;
+      background: #030509;
+      border: 1px solid #142233;
+      padding: 12px 14px;
       border-radius: 6px;
       margin-bottom: 16px;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
     }
     .tensor-title {
       font-size: 0.72rem;
@@ -322,13 +322,13 @@
     .tensor-row {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
       color: #9cb8d9;
     }
     .tensor-bar-bg {
-      height: 5px;
+      height: 4px;
       background: #0d1724;
-      border-radius: 3px;
+      border-radius: 2px;
       overflow: hidden;
       margin-bottom: 10px;
     }
@@ -342,15 +342,15 @@
     }
 
     .ticket-desc-box {
-      font-size: 0.88rem;
-      line-height: 1.75;
+      font-size: 0.85rem;
+      line-height: 1.7;
       color: #e2f1fc;
       white-space: pre-line;
       word-break: keep-all;
       background: #09121e;
       border: 1px solid #1a2f4a;
       padding: 16px;
-      border-radius: 8px;
+      border-radius: 6px;
       margin-bottom: 16px;
     }
 
@@ -376,10 +376,10 @@
       color: #03070d;
       border: none;
       font-family: inherit;
-      font-size: 0.96rem;
+      font-size: 0.95rem;
       font-weight: 800;
-      padding: 15px;
-      border-radius: 8px;
+      padding: 14px;
+      border-radius: 6px;
       cursor: pointer;
       box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
       transition: all 0.2s ease;
@@ -395,10 +395,10 @@
       color: var(--amber-neon);
       border: 1px solid var(--amber-neon);
       font-family: inherit;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 700;
-      padding: 13px;
-      border-radius: 8px;
+      padding: 12px;
+      border-radius: 6px;
       cursor: pointer;
       margin-top: 10px;
       transition: all 0.2s ease;
@@ -423,10 +423,10 @@
       color: var(--cyan-neon);
       font-family: inherit;
       padding: 10px 18px;
-      border-radius: 6px;
+      border-radius: 4px;
       cursor: pointer;
       font-size: 0.88rem;
-      transition: all 0.2s ease;
+      transition: all 0.1s ease;
     }
     .nav-hex-btn:hover {
       background: var(--cyan-neon);
@@ -465,10 +465,10 @@
       <!-- 1. 부팅 / 인트로 뷰 -->
       <div id="boot-view">
         <div class="boot-banner">[CLASSIFIED // JUNG_NEURAL_PROJECT]</div>
-        <h1 class="boot-title">피험자 무의식 코어<br>심층 진단 콘솔<span class="cursor-blink">█</span></h1>
+        <h1 class="boot-title">무의식 코어 데이터<br>심층 복원 콘솔<span class="cursor-blink">█</span></h1>
         
         <div class="boot-spec-box">
-          스위스의 심리학자 칼 구스타프 융이 정의한 <strong>12대 성격 원형(Archetype)</strong>을 바탕으로, 피험자의 무의식 깊은 곳에서 생각과 행동을 이끄는 <strong>핵심 성향 패턴</strong>을 역추적합니다.
+          접속자의 의식을 스캔하여 칼 구스타프 융이 정의한 <strong>12대 성격 원형(Archetype)</strong> 중 무의식 깊은 곳에서 생각과 행동을 이끄는 <strong>뉴럴 코어 패턴</strong>을 역추적합니다.
         </div>
 
         <div class="boot-log-terminal" id="boot-log-box">
@@ -477,7 +477,7 @@
           > READY TO MOUNT /dev/psyche0
         </div>
 
-        <button class="cyber-btn" onclick="startBootSequence()">[ 검사 콘솔 실행하기 ]</button>
+        <button class="cyber-btn" onclick="startBootSequence()">[ ENTER NEURAL SCAN ]</button>
       </div>
 
       <!-- 2. 실시간 문답 스캔 뷰 (1안 세로 리스트형) -->
@@ -505,11 +505,11 @@
       <div id="archive-view">
         <div class="telemetry-ticket" id="archive-card-box"></div>
         <div class="archive-nav-bar">
-          <button class="nav-hex-btn" onclick="slideArchive(-1)">[ &lt; 이전 원형 ]</button>
+          <button class="nav-hex-btn" onclick="slideArchive(-1)">[ &lt; PREV ]</button>
           <span style="font-size:0.8rem; color:var(--amber-neon);" id="archive-counter">RECORD 01/12</span>
-          <button class="nav-hex-btn" onclick="slideArchive(1)">[ 다음 원형 &gt; ]</button>
+          <button class="nav-hex-btn" onclick="slideArchive(1)">[ NEXT &gt; ]</button>
         </div>
-        <button class="cyber-btn-sub" onclick="closeArchiveViewer()">[ 내 분석 리포트로 돌아가기 ]</button>
+        <button class="cyber-btn-sub" onclick="closeArchiveViewer()">[ RETURN TO MY REPORT ]</button>
       </div>
 
     </div>
@@ -595,7 +595,7 @@
     // 대중적인 일상 24개 질문
     const questions = [
       {
-        question: "주말이나 휴일에 나만의 완벽한 하루를 보낸다면?",
+        question: "Q-01. 주말이나 휴일에 나만의 완벽한 하루를 보낸다면?",
         choices: [
           { text: "평소 가보지 않았던 낯선 동네나 장소로 훌쩍 떠나본다.", type: "EXPLORER" },
           { text: "관심 있던 분야의 책이나 다큐멘터리를 보며 생각을 정리한다.", type: "SAGE" },
@@ -604,7 +604,7 @@
         ]
       },
       {
-        question: "주변 사람들이 나에게 가장 자주 해주는 칭찬은?",
+        question: "Q-02. 주변 사람들이 나에게 가장 자주 해주는 칭찬은?",
         choices: [
           { text: "\"너랑 이야기하면 마음이 편안해지고 위로받는 기분이야.\"", type: "CAREGIVER" },
           { text: "\"너는 맡은 일은 어떻게든 해내는 책임감과 끈기가 있어.\"", type: "HERO" },
@@ -613,7 +613,7 @@
         ]
       },
       {
-        question: "팀 프로젝트나 모임에서 예기치 못한 위기가 생겼을 때 나는?",
+        question: "Q-03. 팀 프로젝트나 모임에서 예기치 못한 위기가 생겼을 때 나는?",
         choices: [
           { text: "앞장서서 역할을 다시 나누고 혼란스러운 상황을 정돈한다.", type: "RULER" },
           { text: "\"기존 방식이 비효율적이야!\" 과감하게 다른 접근법을 시도한다.", type: "REBEL" },
@@ -622,7 +622,7 @@
         ]
       },
       {
-        question: "내가 삶에서 가장 중요하게 여기는 가치는?",
+        question: "Q-04. 내가 삶에서 가장 중요하게 여기는 가치는?",
         choices: [
           { text: "서로를 믿을 수 있는 안전함과 소박한 행복", type: "INNOCENT" },
           { text: "진심을 나눌 수 있는 깊은 관계와 열정", type: "LOVER" },
@@ -631,7 +631,7 @@
         ]
       },
       {
-        question: "내가 가장 답답하고 지치기 쉬운 환경은?",
+        question: "Q-05. 내가 가장 답답하고 지치기 쉬운 환경은?",
         choices: [
           { text: "사소한 규칙이 너무 많고 자유가 제한되는 꽉 막힌 환경", type: "EXPLORER" },
           { text: "불합리한 관행을 '원래 그렇다'며 강요하는 조직", type: "REBEL" },
@@ -640,7 +640,7 @@
         ]
       },
       {
-        question: "중요한 선택의 갈림길에 섰을 때 나의 주된 기준은?",
+        question: "Q-06. 중요한 선택의 갈림길에 섰을 때 나의 주된 기준은?",
         choices: [
           { text: "\"내 마음이 진심으로 두근거리고 애정이 가는 길인가?\"", type: "LOVER" },
           { text: "\"남의 방식을 흉내 내지 않고 나다운 독창성을 살릴 수 있는가?\"", type: "CREATOR" },
@@ -649,7 +649,7 @@
         ]
       },
       {
-        question: "내가 생각하는 가장 이상적인 리더의 모습은?",
+        question: "Q-07. 내가 생각하는 가장 이상적인 리더의 모습은?",
         choices: [
           { text: "명확한 규율과 시스템으로 조직 전체를 안정시키는 리더", type: "RULER" },
           { text: "직접 앞장서서 장애물을 돌파하며 본보기가 되는 리더", type: "HERO" },
@@ -658,7 +658,7 @@
         ]
       },
       {
-        question: "하루 일과를 마치고 나에게 가장 큰 힐링이 되는 시간은?",
+        question: "Q-08. 하루 일과를 마치고 나에게 가장 큰 힐링이 되는 시간은?",
         choices: [
           { text: "재미있는 예능이나 쇼츠를 보며 가볍게 한바탕 웃는 시간", type: "JESTER" },
           { text: "조용히 생각을 비우며 관심 있는 글을 읽거나 사색하는 시간", type: "SAGE" },
@@ -667,7 +667,7 @@
         ]
       },
       {
-        question: "새로운 모임에 들어갔을 때 나의 자연스러운 모습은?",
+        question: "Q-09. 새로운 모임에 들어갔을 때 나의 자연스러운 모습은?",
         choices: [
           { text: "튀지 않고 친근하게 주변 사람들과 무난하게 어울린다.", type: "EVERYMAN" },
           { text: "형식적인 예의나 어색한 틀에 얽매이지 않고 편하게 행동한다.", type: "REBEL" },
@@ -676,7 +676,7 @@
         ]
       },
       {
-        question: "무언가를 기획하거나 일할 때 가장 신경 쓰는 부분은?",
+        question: "Q-10. 무언가를 기획하거나 일할 때 가장 신경 쓰는 부분은?",
         choices: [
           { text: "흔한 흉내가 아닌, 나만의 독창적인 아이디어와 개성", type: "CREATOR" },
           { text: "일정이나 역할이 명확히 돌아가는 꼼꼼한 프로세스", type: "RULER" },
@@ -685,7 +685,7 @@
         ]
       },
       {
-        question: "친구가 억울하고 속상한 일을 털어놓을 때 나의 첫 반응은?",
+        question: "Q-11. 친구가 억울하고 속상한 일을 털어놓을 때 나의 첫 반응은?",
         choices: [
           { text: "\"가만있지 말고 정당하게 문제를 제기해!\" 분개하며 편을 든다.", type: "REBEL" },
           { text: "\"정말 속상했겠다...\" 따뜻하게 위로하며 이야기를 끝까지 들어준다.", type: "CAREGIVER" },
@@ -694,7 +694,7 @@
         ]
       },
       {
-        question: "몸과 마음이 완전히 지쳤을 때 나만의 긴급 충전법은?",
+        question: "Q-12. 몸과 마음이 완전히 지쳤을 때 나만의 긴급 충전법은?",
         choices: [
           { text: "잠시 스마트폰을 내려놓고 바람 쐬러 나가거나 산책을 한다.", type: "EXPLORER" },
           { text: "혼자만의 방에서 조용히 내 마음 상태를 차분히 돌아본다.", type: "MAGICIAN" },
@@ -703,7 +703,7 @@
         ]
       },
       {
-        question: "여유 자금이나 뜻밖의 보너스가 생겼을 때 나의 소비 스타일은?",
+        question: "Q-13. 여유 자금이나 뜻밖의 보너스가 생겼을 때 나의 소비 스타일은?",
         choices: [
           { text: "평소 관심 있던 취미 용품이나 창작 도구를 구입한다.", type: "CREATOR" },
           { text: "기분 전환을 위해 즉흥적인 여행이나 새로운 체험에 쓴다.", type: "EXPLORER" },
@@ -712,7 +712,7 @@
         ]
       },
       {
-        question: "노력했던 일이 뜻대로 풀리지 않았을 때 나의 모습은?",
+        question: "Q-14. 노력했던 일이 뜻대로 풀리지 않았을 때 나의 모습은?",
         choices: [
           { text: "\"여기서 포기할 수 없지!\" 마음을 다잡고 다시 도전한다.", type: "HERO" },
           { text: "무엇이 부족했는지 원인을 차분히 짚어보고 보완책을 찾는다.", type: "SAGE" },
@@ -721,7 +721,7 @@
         ]
       },
       {
-        question: "성격이 전혀 맞지 않는 동료와 협업해야 할 때 나의 처세는?",
+        question: "Q-15. 성격이 전혀 맞지 않는 동료와 협업해야 할 때 나의 처세는?",
         choices: [
           { text: "감정적인 마찰을 줄이고 공적인 선에서 무난하게 보폭을 맞춘다.", type: "EVERYMAN" },
           { text: "상대의 성향을 파악해 서로 윈윈할 수 있는 절충점을 찾는다.", type: "MAGICIAN" },
@@ -730,7 +730,7 @@
         ]
       },
       {
-        question: "영화나 드라마를 볼 때 가장 마음이 가는 캐릭터는?",
+        question: "Q-16. 영화나 드라마를 볼 때 가장 마음이 가는 캐릭터는?",
         choices: [
           { text: "역경을 딛고 끝내 자신의 목표를 이뤄내는 인물", type: "HERO" },
           { text: "불합리한 시스템에 얽매이지 않고 자신만의 룰대로 사는 인물", type: "REBEL" },
@@ -739,7 +739,7 @@
         ]
       },
       {
-        question: "친구가 무리한 부탁을 해왔을 때 나의 대응은?",
+        question: "Q-17. 친구가 무리한 부탁을 해왔을 때 나의 대응은?",
         choices: [
           { text: "지킬 수 있는 한계를 명확히 설명하고 정중하게 거절한다.", type: "RULER" },
           { text: "거절하면 상대가 곤란해할까 봐 차마 거절하지 못하고 돕는다.", type: "CAREGIVER" },
@@ -748,7 +748,7 @@
         ]
       },
       {
-        question: "오래가는 깊은 인간관계를 위해 가장 필요한 것은?",
+        question: "Q-18. 오래가는 깊은 인간관계를 위해 가장 필요한 것은?",
         choices: [
           { text: "서로의 진솔한 속마음과 감정을 나눌 수 있는 친밀감", type: "LOVER" },
           { text: "특별한 조건 없이 있는 그대로의 편한 모습을 받아주는 편안함", type: "EVERYMAN" },
@@ -757,7 +757,7 @@
         ]
       },
       {
-        question: "함께 일하거나 지내기 가장 꺼려지는 사람의 유형은?",
+        question: "Q-19. 함께 일하거나 지내기 가장 꺼려지는 사람의 유형은?",
         choices: [
           { text: "어떠한 발전적인 아이디어나 비전도 없이 수동적인 사람", type: "MAGICIAN" },
           { text: "부당한 대우를 받으면서도 무조건 눈치만 보며 순응하는 사람", type: "REBEL" },
@@ -766,7 +766,7 @@
         ]
       },
       {
-        question: "매일 반복되는 일상에 지루함이 찾아왔을 때 나의 행동은?",
+        question: "Q-20. 매일 반복되는 일상에 지루함이 찾아왔을 때 나의 행동은?",
         choices: [
           { text: "새로운 취미를 배우거나 새로운 동선으로 다녀본다.", type: "EXPLORER" },
           { text: "나만의 아이디어를 기록하거나 창의적인 표현을 시도한다.", type: "CREATOR" },
@@ -775,7 +775,7 @@
         ]
       },
       {
-        question: "내가 속한 조직에서 가장 개선하고 싶은 모습은?",
+        question: "Q-21. 내가 속한 조직에서 가장 개선하고 싶은 모습은?",
         choices: [
           { text: "역할 분담이 불분명하고 체계 없이 돌아가는 비효율", type: "RULER" },
           { text: "서로를 믿지 못하고 뒤에서 험담이 오가는 삭막한 공기", type: "INNOCENT" },
@@ -784,7 +784,7 @@
         ]
       },
       {
-        question: "나에게 진정한 의미의 '성공적인 삶'이란?",
+        question: "Q-22. 나에게 진정한 의미의 '성공적인 삶'이란?",
         choices: [
           { text: "스스로 세운 높은 기준을 뛰어넘어 당당하게 인정받는 것", type: "HERO" },
           { text: "많은 사람들에게 긍정적인 영감과 의미 있는 영향을 주는 것", type: "MAGICIAN" },
@@ -793,7 +793,7 @@
         ]
       },
       {
-        question: "새롭고 복잡한 문제를 해결해야 할 때 나의 접근법은?",
+        question: "Q-23. 새롭고 복잡한 문제를 해결해야 할 때 나의 접근법은?",
         choices: [
           { text: "관련 자료와 사례를 꼼꼼하게 찾아보며 사실에 기반해 푼다.", type: "SAGE" },
           { text: "전체적인 흐름과 핵심 원인을 직관적으로 파악해 본다.", type: "MAGICIAN" },
@@ -802,7 +802,7 @@
         ]
       },
       {
-        question: "온전한 나만의 공간(방/작업실)을 꾸민다면 가장 신경 쓸 부분은?",
+        question: "Q-24. 온전한 나만의 공간(방/작업실)을 꾸민다면 가장 신경 쓸 부분은?",
         choices: [
           { text: "가족이나 지인이 언제든 찾아와 편히 쉴 수 있는 아늑함", type: "CAREGIVER" },
           { text: "보기만 해도 기분이 유쾌해지는 독특하고 재미있는 소품", type: "JESTER" },
@@ -831,7 +831,7 @@
         "> ALLOCATING PSYCHE BUFFER...",
         "> ESTABLISHING NEURAL LINK (24 NODES)...",
         "> SCANNING UNCONSCIOUS ARCHIVE...",
-        "> READY. 진단 검사를 시작합니다."
+        "> READY. COMMENCING PSYCHE SCAN"
       ];
 
       let step = 0;
@@ -940,7 +940,7 @@
       resultView.innerHTML = `
         <div class="telemetry-ticket">
           <div class="ticket-top-tag">
-            <span>[피험자 무의식 코어 분석 리포트]</span>
+            <span>[접속자 무의식 코어 분석 리포트]</span>
             <span>ID: ${res.code}</span>
           </div>
           

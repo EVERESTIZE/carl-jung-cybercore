@@ -184,8 +184,9 @@
     .progress-bar {
       height: 100%;
       width: 0%;
-      background: linear-gradient(90deg, var(--cyan-neon), var(--amber-neon));
-      box-shadow: 0 0 10px var(--cyan-neon);
+      /* 변경 후: 사이언(#00f0ff) → 딥 바이올렛(#7928ca) → 네온 퍼플(#b829dd) */
+background: linear-gradient(90deg, #00f0ff, #7928ca, #b829dd);
+box-shadow: 0 0 10px rgba(184, 41, 221, 0.6);
       transition: width 0.25s ease;
     }
 
